@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AM2Template</string>
+    <string name="hello_world">Fragment</string>
+    <string name="action_settings">Settings</string>
+</resources>
