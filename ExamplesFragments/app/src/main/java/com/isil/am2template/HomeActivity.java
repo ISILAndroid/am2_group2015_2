@@ -46,11 +46,17 @@ public class HomeActivity extends ActionBarActivity implements OnColorListener {
 
     @Override
     public void selectedColor(int color, int position) {
-
     }
 
     @Override
-    public void selectedColor(int color) {
+    public void selectedColor(int color)
+    {
 
+        Log.v(TAG,"selectedColor "+color);
+
+        if(fragmentB!=null)
+        {
+            fragmentB.showColor(color);
+        }
     }
 }

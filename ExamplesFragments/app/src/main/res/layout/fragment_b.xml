@@ -8,6 +8,7 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/blue"/>
+        android:background="@color/blue"
+        android:id="@+id/iviColor"/>
 
 </FrameLayout>

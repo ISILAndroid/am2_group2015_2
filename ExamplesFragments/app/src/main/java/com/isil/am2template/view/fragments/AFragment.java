@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.isil.am2template.R;
 import com.isil.am2template.view.OnColorListener;
@@ -30,6 +31,8 @@ public class AFragment extends Fragment {
     private String mParam2;
 
     private OnColorListener mListener;
+
+    private ImageView iviColor1,iviColor2,iviColor3;
 
     /**
      * Use this factory method to create a new instance of
@@ -87,5 +90,33 @@ public class AFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        iviColor1= (ImageView)getView().findViewById(R.id.iviColor1);
+        iviColor2= (ImageView)getView().findViewById(R.id.iviColor2);
+        iviColor3= (ImageView)getView().findViewById(R.id.iviColor3);
 
+        iviColor1.setOnClickListener(onClickListener);
+        iviColor2.setOnClickListener(onClickListener);
+        iviColor3.setOnClickListener(onClickListener);
+    }
+
+    private View.OnClickListener onClickListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId())
+            {
+                case R.id.iviColor1:
+                    mListener.selectedColor(R.color.blue);
+                    break;
+                case R.id.iviColor2:
+                    mListener.selectedColor(R.color.red);
+                    break;
+                case R.id.iviColor3:
+                    mListener.selectedColor(R.color.cyan);
+                    break;
+            }
+        }
+    };
 }

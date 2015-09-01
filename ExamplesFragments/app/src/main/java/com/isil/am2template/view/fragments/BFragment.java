@@ -1,12 +1,15 @@
 package com.isil.am2template.view.fragments;
 
 import android.app.Activity;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.isil.am2template.R;
 import com.isil.am2template.view.OnColorListener;
@@ -22,6 +25,8 @@ import com.isil.am2template.view.OnColorListener;
 public class BFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String TAG ="BFragment" ;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -31,6 +36,7 @@ public class BFragment extends Fragment {
 
     private OnColorListener mListener;
 
+    private ImageView iviColor;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -87,4 +93,17 @@ public class BFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        iviColor= (ImageView)getView().findViewById(R.id.iviColor);
+
+    }
+
+    public void showColor(int color)
+    {
+        Log.v(TAG, "showColor " + color);
+        //iviColor.setBackgroundColor(color);
+        iviColor.setBackgroundColor(getResources().getColor(color));
+    }
 }
