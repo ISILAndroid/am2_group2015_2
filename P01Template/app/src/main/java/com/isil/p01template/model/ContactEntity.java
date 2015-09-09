@@ -12,6 +12,7 @@ public class ContactEntity implements Serializable {
     private String phone;
     private String email;
     private int photo;
+    private String group;
 
     public int getId() {
         return id;
@@ -51,5 +52,13 @@ public class ContactEntity implements Serializable {
 
     public void setPhoto(int photo) {
         this.photo = photo;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

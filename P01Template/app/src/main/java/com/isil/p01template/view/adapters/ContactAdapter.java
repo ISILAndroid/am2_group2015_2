@@ -1,10 +1,14 @@
 package com.isil.p01template.view.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.isil.p01template.R;
 import com.isil.p01template.model.ContactEntity;
 
 import java.util.List;
@@ -24,12 +28,12 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return this.contactEntities.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return this.contactEntities.get(position);
     }
 
     @Override
@@ -39,6 +43,17 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        //Dibujar la celda
+        LayoutInflater inflater=LayoutInflater.from(context);
+        View container= inflater.inflate(R.layout.row_contact, null);
+        ImageView imgContact= (ImageView)container.findViewById(R.id.iviContact);
+        TextView tviName= (TextView)container.findViewById(R.id.tviName);
+        //Extraer la entidad
+        ContactEntity contactEntity= this.contactEntities.get(position);
+        //Asociar la entidad con el XML
+        tviName.setText(contactEntity.getName());
+        imgContact.setImageResource(contactEntity.getPhoto());
+
+        return container;
     }
 }

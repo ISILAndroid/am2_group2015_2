@@ -10,7 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.isil.p01template.R;
+import com.isil.p01template.model.ContactEntity;
 import com.isil.p01template.view.OnFragmentListener;
+import com.isil.p01template.view.adapters.ContactAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -93,6 +98,42 @@ public class ContactsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         lstContacts= (ListView)getView().findViewById(R.id.lstContacts);
+
+        //1. DATA
+        ContactEntity contactEntity= new ContactEntity();
+        contactEntity.setId(1);
+        contactEntity.setName("Pedro Palotes");
+        contactEntity.setEmail("pedro@gmail.com");
+        contactEntity.setGroup("Familia");
+        contactEntity.setPhone("92835056");
+        contactEntity.setPhoto(R.drawable.img002);
+
+        ContactEntity contactEntity1= new ContactEntity();
+        contactEntity1.setId(2);
+        contactEntity1.setName("Carlos Palotes");
+        contactEntity1.setEmail("carlos@gmail.com");
+        contactEntity1.setGroup("Familia");
+        contactEntity1.setPhone("96859685");
+        contactEntity1.setPhoto(R.drawable.img004);
+
+        ContactEntity contactEntity2= new ContactEntity();
+        contactEntity2.setId(3);
+        contactEntity2.setName("Jose Mendoza");
+        contactEntity2.setEmail("jose@gmail.com");
+        contactEntity2.setGroup("Familia");
+        contactEntity2.setPhone("97457434");
+        contactEntity2.setPhoto(R.drawable.img005);
+
+        List<ContactEntity> data = new ArrayList<>();
+        data.add(contactEntity);
+        data.add(contactEntity1);
+        data.add(contactEntity2);
+
+        //2 Lista lstContacts
+        //3 Item row_contact
+        //4 Adapter
+        ContactAdapter contactAdapter= new ContactAdapter(data,getActivity());
+        lstContacts.setAdapter(contactAdapter);
 
        /* lstContacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
