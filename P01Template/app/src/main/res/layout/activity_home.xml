@@ -4,18 +4,17 @@
     android:orientation="horizontal"
     tools:context="com.isil.p01template.HomeActivity">
 
-
     <fragment
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:name="com.isil.p01template.view.fragments.AFragment"
+        android:name="com.isil.p01template.view.fragments.ContactsFragment"
         android:id="@+id/fragmentA"/>
 
     <fragment
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:name="com.isil.p01template.view.fragments.BFragment"
+        android:name="com.isil.p01template.view.fragments.DetailContactFragment"
         android:id="@+id/fragmentB"/>
 </LinearLayout>

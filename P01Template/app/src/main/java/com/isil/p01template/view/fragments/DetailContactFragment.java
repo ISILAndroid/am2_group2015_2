@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.isil.p01template.R;
 import com.isil.p01template.view.OnFragmentListener;
@@ -13,12 +15,12 @@ import com.isil.p01template.view.OnFragmentListener;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- *  interface
+ * interface
  * to handle interaction events.
- * Use the {@link AFragment#newInstance} factory method to
+ * Use the {@link DetailContactFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AFragment extends Fragment {
+public class DetailContactFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +31,11 @@ public class AFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentListener mListener;
+    private ImageView iviContact;
+    private TextView tviName;
+    private TextView tviPhone;
+    private TextView tviEmail;
+    private TextView tviGroup;
 
     /**
      * Use this factory method to create a new instance of
@@ -36,11 +43,11 @@ public class AFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AFragment.
+     * @return A new instance of fragment DetailContactFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AFragment newInstance(String param1, String param2) {
-        AFragment fragment = new AFragment();
+    public static DetailContactFragment newInstance(String param1, String param2) {
+        DetailContactFragment fragment = new DetailContactFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -48,7 +55,7 @@ public class AFragment extends Fragment {
         return fragment;
     }
 
-    public AFragment() {
+    public DetailContactFragment() {
         // Required empty public constructor
     }
 
@@ -65,7 +72,7 @@ public class AFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_a, container, false);
+        return inflater.inflate(R.layout.fragment_detail_contact, container, false);
     }
 
 
@@ -86,5 +93,13 @@ public class AFragment extends Fragment {
         mListener = null;
     }
 
-
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        iviContact=(ImageView)getView().findViewById(R.id.iviContact);
+        tviName=(TextView)getView().findViewById(R.id.tviName);
+        tviPhone=(TextView)getView().findViewById(R.id.tviPhone);
+        tviEmail=(TextView)getView().findViewById(R.id.tviEmail);
+        tviGroup=(TextView)getView().findViewById(R.id.tviGroup);
+    }
 }

@@ -8,16 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.isil.p01template.view.OnFragmentListener;
-import com.isil.p01template.view.fragments.AFragment;
-import com.isil.p01template.view.fragments.BFragment;
+import com.isil.p01template.view.fragments.ContactsFragment;
+import com.isil.p01template.view.fragments.DetailContactFragment;
 
 
 public class HomeActivity extends ActionBarActivity implements OnFragmentListener {
 
     private static final String TAG = "HomeActivity";
 
-    private AFragment fragmentA;
-    private BFragment fragmentB;
+    private ContactsFragment fragmentA;
+    private DetailContactFragment fragmentB;
     private FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,8 @@ public class HomeActivity extends ActionBarActivity implements OnFragmentListene
 
     private void init() {
         fragmentManager= getSupportFragmentManager();
-        fragmentA= (AFragment)fragmentManager.findFragmentById(R.id.fragmentA);
-        fragmentB= (BFragment)fragmentManager.findFragmentById(R.id.fragmentB);
+        fragmentA= (ContactsFragment)fragmentManager.findFragmentById(R.id.fragmentA);
+        fragmentB= (DetailContactFragment)fragmentManager.findFragmentById(R.id.fragmentB);
 
         Log.v(TAG, "fragment A"+fragmentA+ " fragment B "+fragmentB);
     }

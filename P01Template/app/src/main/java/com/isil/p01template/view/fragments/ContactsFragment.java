@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.isil.p01template.R;
 import com.isil.p01template.view.OnFragmentListener;
@@ -13,12 +15,12 @@ import com.isil.p01template.view.OnFragmentListener;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * interface
+ *  interface
  * to handle interaction events.
- * Use the {@link BFragment#newInstance} factory method to
+ * Use the {@link ContactsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BFragment extends Fragment {
+public class ContactsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +31,7 @@ public class BFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentListener mListener;
+    private ListView lstContacts;
 
     /**
      * Use this factory method to create a new instance of
@@ -36,11 +39,11 @@ public class BFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BFragment.
+     * @return A new instance of fragment ContactsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BFragment newInstance(String param1, String param2) {
-        BFragment fragment = new BFragment();
+    public static ContactsFragment newInstance(String param1, String param2) {
+        ContactsFragment fragment = new ContactsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -48,7 +51,7 @@ public class BFragment extends Fragment {
         return fragment;
     }
 
-    public BFragment() {
+    public ContactsFragment() {
         // Required empty public constructor
     }
 
@@ -65,7 +68,7 @@ public class BFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_b, container, false);
+        return inflater.inflate(R.layout.fragment_contact, container, false);
     }
 
 
@@ -86,4 +89,16 @@ public class BFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        lstContacts= (ListView)getView().findViewById(R.id.lstContacts);
+
+       /* lstContacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });*/
+    }
 }
