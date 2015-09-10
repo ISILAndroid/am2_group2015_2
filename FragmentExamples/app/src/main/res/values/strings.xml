@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FragmentExamples</string>
+    <string name="hello_world">FragmentExamples</string>
+    <string name="action_settings">FragmentExamples</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">FragmentExamples</string>
+    <string name="title_activity_home">FragmentExamples</string>
+    <string name="title_activity_message">FragmentExamples</string>
+    <string name="title_activity_example1">Example1Activity</string>
+    <string name="title_activity_example2">Example2Activity</string>
+    <string name="title_activity_box">BoxActivity</string>
+</resources>
