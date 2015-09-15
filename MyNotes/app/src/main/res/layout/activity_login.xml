@@ -27,7 +27,7 @@
             android:inputType="textEmailAddress"
             android:ems="10"
             android:hint="Username"
-            android:id="@+id/editText"
+            android:id="@+id/eteUsername"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="169dp" />
@@ -38,8 +38,7 @@
             android:inputType="textPassword"
             android:hint="Password"
             android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_below="@+id/editText"
+            android:id="@+id/etePassword"
             android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true" />
 
@@ -49,10 +48,8 @@
             android:padding="5dp"
             android:background="#D5EDED"
             android:text="Ingresar"
-            android:id="@+id/button"
+            android:id="@+id/btnLogin"
             android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_alignStart="@+id/editText2"
             android:layout_marginBottom="40dp" />
     </LinearLayout>
 
