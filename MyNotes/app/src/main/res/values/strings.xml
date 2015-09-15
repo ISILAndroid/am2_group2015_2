@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyNotes</string>
+
+    <string name="hello_world">MyNotes</string>
+    <string name="action_settings">MyNotes</string>
+    <string name="title_activity_splash">MyNotes</string>
+    <string name="my_note">My Notes</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>
