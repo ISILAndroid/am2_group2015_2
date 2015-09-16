@@ -25,6 +25,8 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG ="MainActivity" ;
+    private static final int ACTION_ADD=1;
+    private static final int ACTION_DETAIL=2;
 
     private TextView tviLogout,tviUser;
     private ListView lstNotes;
@@ -39,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         //populate();
         init();
-        loadData();
+        //loadData();
     }
 
     private void loadData() {
@@ -60,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         crudOperations.addNote(new NoteEntity("Quinta Nota","Esta es la quinta nota ",null));
         crudOperations.addNote(new NoteEntity("Sexta Nota","Esta es la sexta nota ",null));
 
-        Log.v(TAG, "populate "+crudOperations.getAllNotes());
+        Log.v(TAG, "populate " + crudOperations.getAllNotes());
     }
 
     private void init() {
@@ -80,14 +82,15 @@ public class MainActivity extends ActionBarActivity {
         btnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                gotoNote(ACTION_ADD, null);
             }
         });
 
         lstNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                NoteEntity noteEntity = (NoteEntity) adapterView.getAdapter().getItem(i);
+                gotoNote(ACTION_DETAIL, noteEntity);
             }
         });
 
@@ -99,10 +102,34 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
+    private void gotoNote(int action, NoteEntity noteEntity) {
+        Intent intent= new Intent(this,NoteActivity.class);
+
+        switch (action)
+        {
+            case ACTION_ADD:
+                    intent.putExtra("FRAGMENT",NoteActivity.ADD_NOTE);
+                    startActivity(intent);
+                break;
+            case ACTION_DETAIL:
+                intent.putExtra("FRAGMENT",NoteActivity.DETAIL_NOTE);
+                intent.putExtra("NOTE", noteEntity);
+                startActivity(intent);
+                break;
+        }
+    }
+
     private void logout() {
         PreferencesHelper.signOut(this);
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v(TAG, "onResumen");
+        loadData();
     }
 
     @Override
