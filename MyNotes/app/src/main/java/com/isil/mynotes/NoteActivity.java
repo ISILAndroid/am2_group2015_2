@@ -3,6 +3,7 @@ package com.isil.mynotes;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -10,15 +11,18 @@ import com.isil.mynotes.R;
 import com.isil.mynotes.model.entity.NoteEntity;
 import com.isil.mynotes.storage.db.CRUDOperations;
 import com.isil.mynotes.storage.db.MyDatabase;
+import com.isil.mynotes.view.dialogs.MyDialogFragment;
+import com.isil.mynotes.view.dialogs.MyDialogListener;
 import com.isil.mynotes.view.fragments.AddNoteFragment;
 import com.isil.mynotes.view.fragments.DetailsFragment;
 import com.isil.mynotes.view.listeners.OnNoteListener;
 
-public class NoteActivity extends ActionBarActivity  implements OnNoteListener{
+public class NoteActivity extends ActionBarActivity  implements OnNoteListener, MyDialogListener{
 
     public static final  int ADD_NOTE=100;
     public static final  int DETAIL_NOTE=101;
     public static final  int UPDATE_NOTE=102;
+    private static final String TAG ="NoteActivity";
 
     private AddNoteFragment addNoteFragment= AddNoteFragment.newInstance(null,null);
     private DetailsFragment detailsFragment= DetailsFragment.newInstance(null,null);
@@ -93,5 +97,25 @@ public class NoteActivity extends ActionBarActivity  implements OnNoteListener{
     @Override
     public CRUDOperations getCrudOperations() {
         return crudOperations;
+    }
+
+    @Override
+    public void deleteNote(NoteEntity noteEntity) {
+        MyDialogFragment myDialogFragment =new MyDialogFragment();
+        Bundle bundle= new Bundle();
+        bundle.putString("TITLE","¿Deseas eliminar esta nota?");
+        bundle.putInt("TYPE",100);
+        myDialogFragment.setArguments(bundle);
+        myDialogFragment.show(getFragmentManager(), "dialog");
+    }
+
+    @Override
+    public void onPositiveListener(Object object, int type) {
+        Log.v(TAG, "dialog positive");
+    }
+
+    @Override
+    public void onNegativeListener(Object object, int type) {
+        Log.v(TAG, "dialog negative");
     }
 }

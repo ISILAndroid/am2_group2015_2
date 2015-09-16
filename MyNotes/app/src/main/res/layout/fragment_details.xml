@@ -41,6 +41,7 @@
             android:padding="5dp"
             android:background="#D5EDED"
             android:text="Eliminar"
+            android:layout_marginRight="5dp"
             android:id="@+id/btnDeleteNote"
              />
         <Button

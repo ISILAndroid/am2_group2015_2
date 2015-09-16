@@ -97,6 +97,9 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        btnDeleteNote=(Button)getView().findViewById(R.id.btnDeleteNote);
+        btnEditNote=(Button)getView().findViewById(R.id.btnEditNote);
+
         if(getArguments()!=null)
         {
             noteEntity= (NoteEntity)getArguments().getSerializable("NOTE");
@@ -105,5 +108,12 @@ public class DetailsFragment extends Fragment {
         {
             //TODO mostrar INFO
         }
+
+        btnDeleteNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.deleteNote(noteEntity);
+            }
+        });
     }
 }

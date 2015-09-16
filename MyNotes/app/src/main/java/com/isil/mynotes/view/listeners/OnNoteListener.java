@@ -1,5 +1,6 @@
 package com.isil.mynotes.view.listeners;
 
+import com.isil.mynotes.model.entity.NoteEntity;
 import com.isil.mynotes.storage.db.CRUDOperations;
 
 /**
@@ -7,5 +8,6 @@ import com.isil.mynotes.storage.db.CRUDOperations;
  */
 public interface OnNoteListener {
 
-    public CRUDOperations getCrudOperations();
+     CRUDOperations getCrudOperations();
+     void deleteNote(NoteEntity noteEntity);
 }
