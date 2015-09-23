@@ -104,14 +104,21 @@ public class NoteActivity extends ActionBarActivity  implements OnNoteListener, 
         MyDialogFragment myDialogFragment =new MyDialogFragment();
         Bundle bundle= new Bundle();
         bundle.putString("TITLE","¿Deseas eliminar esta nota?");
-        bundle.putInt("TYPE",100);
+        bundle.putInt("TYPE", 100);
+        bundle.putSerializable("ENTITY", noteEntity);
         myDialogFragment.setArguments(bundle);
         myDialogFragment.show(getFragmentManager(), "dialog");
     }
 
     @Override
     public void onPositiveListener(Object object, int type) {
-        Log.v(TAG, "dialog positive");
+        Log.v(TAG, "dialog positive ");
+        NoteEntity noteEntity= (NoteEntity)(object);
+        if(noteEntity!=null)
+        {
+            crudOperations.deleteNote(noteEntity);
+            finish();
+        }
     }
 
     @Override

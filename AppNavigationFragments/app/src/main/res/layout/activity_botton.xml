@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.isil.am2lesson3.view.BottonActivity">
+
+
+    <fragment
+        android:id="@+id/boxFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="65dp"
+        android:name="com.isil.am2lesson3.view.fragments.BoxFragment"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:name="com.isil.am2lesson3.view.fragments.BottomBarFragment"
+        android:id="@+id/bottonFragment"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -13,6 +13,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre de la Nota"
+            android:enabled="false"
             android:id="@+id/eteName" />
 
         <EditText
@@ -20,11 +21,13 @@
             android:layout_height="wrap_content"
             android:hint="Descripción de la Nota"
             android:lines="2"
+            android:enabled="false"
             android:id="@+id/eteDesc" />
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:inputType="textMultiLine"
+            android:enabled="false"
             android:ems="10"
             android:id="@+id/eteNote" />
     </LinearLayout>
