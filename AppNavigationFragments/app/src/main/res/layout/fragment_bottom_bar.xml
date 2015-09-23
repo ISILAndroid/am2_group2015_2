@@ -27,4 +27,12 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:background="#ff0000"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flay4"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="#000000"></FrameLayout>
 </LinearLayout>

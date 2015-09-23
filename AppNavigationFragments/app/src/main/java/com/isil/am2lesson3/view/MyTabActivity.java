@@ -83,6 +83,12 @@ public class MyTabActivity extends ActionBarActivity implements OnFragmentListen
 
         mActionbar.addTab(tab);
 
+        tab = mActionbar.newTab()
+                .setText("Tab4")
+                .setTabListener(tabListener);
+
+        mActionbar.addTab(tab);
+
     }
 
 

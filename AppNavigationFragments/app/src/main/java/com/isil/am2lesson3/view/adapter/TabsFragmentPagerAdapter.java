@@ -8,10 +8,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.isil.am2lesson3.view.fragments.AFragment;
 import com.isil.am2lesson3.view.fragments.BFragment;
 import com.isil.am2lesson3.view.fragments.CFragment;
+import com.isil.am2lesson3.view.fragments.DFragment;
 
 public class TabsFragmentPagerAdapter extends FragmentPagerAdapter{
 	
-	final int PAGE_COUNT = 3;
+	final int PAGE_COUNT = 4;
 
 	public TabsFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -33,6 +34,9 @@ public class TabsFragmentPagerAdapter extends FragmentPagerAdapter{
             case 2:
                 CFragment fragment3 =CFragment.newInstance(null,null);
 				return fragment3;
+			case 3:
+				DFragment fragment4= DFragment.newInstance(null,null);
+				return  fragment4;
 		}
 		
 		return null;

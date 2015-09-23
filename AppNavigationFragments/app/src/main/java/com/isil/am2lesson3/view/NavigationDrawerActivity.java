@@ -19,6 +19,7 @@ import com.isil.am2lesson3.R;
 import com.isil.am2lesson3.view.fragments.AFragment;
 import com.isil.am2lesson3.view.fragments.BFragment;
 import com.isil.am2lesson3.view.fragments.CFragment;
+import com.isil.am2lesson3.view.fragments.DFragment;
 import com.isil.am2lesson3.view.listener.OnFragmentListener;
 
 public class NavigationDrawerActivity extends ActionBarActivity implements OnFragmentListener{
@@ -34,6 +35,7 @@ public class NavigationDrawerActivity extends ActionBarActivity implements OnFra
     private AFragment aFragment= AFragment.newInstance(null,null);
     private BFragment bFragment= BFragment.newInstance(null, null);
     private CFragment cFragment= CFragment.newInstance(null, null);
+    private DFragment dFragment= DFragment.newInstance(null, null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +143,10 @@ public class NavigationDrawerActivity extends ActionBarActivity implements OnFra
                 break;
             case 2:
                 changeFragment(null,cFragment ,"cFragment");
+                break;
+
+            case 3:
+                changeFragment(null,dFragment ,"dFragment");
                 break;
         }
     }

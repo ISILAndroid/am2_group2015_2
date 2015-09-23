@@ -116,6 +116,7 @@ public class BottomBarFragment extends Fragment {
         FrameLayout flay1= (FrameLayout)getView().findViewById(R.id.flay1);
         FrameLayout flay2= (FrameLayout)getView().findViewById(R.id.flay2);
         FrameLayout flay3= (FrameLayout)getView().findViewById(R.id.flay3);
+        FrameLayout flay4= (FrameLayout)getView().findViewById(R.id.flay4);
 
         flay1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +135,12 @@ public class BottomBarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mListener.colorSelected(2);
+            }
+        });
+        flay4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.colorSelected(3);
             }
         });
     }

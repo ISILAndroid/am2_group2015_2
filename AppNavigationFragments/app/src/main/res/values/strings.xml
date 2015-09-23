@@ -14,6 +14,7 @@
         <item>Fragment A</item>
         <item>Fragment B</item>
         <item>Fragment C</item>
+        <item>Fragment D</item>
     </string-array>
 
     <string name="title_activity_my_view_pager">MyViewPagerActivity</string>
