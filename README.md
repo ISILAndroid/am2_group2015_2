@@ -3,8 +3,13 @@ Aplicaciones Móviles II - Android ISIL
 
 ## Lesson 6
 
-* Navegación con Fragments
+* Base de Datos SQLite
+* Manejo de base de datos con ORMLite
+* Ejemplos Base de datos
 
-- Navigation drawer
-- Tabs
-- ViewPager
+## Referencias
+
+* ORMLite [Link](http://ormlite.com/sqlite_java_android_orm.shtml)
+* ORMLite Ejemplos [Link](http://ormlite.com/android/examples/)
+
+
