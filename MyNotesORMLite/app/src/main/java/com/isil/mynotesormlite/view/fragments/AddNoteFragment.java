@@ -3,6 +3,7 @@ package com.isil.mynotesormlite.view.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import android.widget.EditText;
 
 import com.isil.mynotesormlite.R;
 import com.isil.mynotesormlite.entity.NoteEntity;
+import com.isil.mynotesormlite.storage.dborm.NoteRepository;
 import com.isil.mynotesormlite.view.listeners.OnNoteListener;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +29,7 @@ public class AddNoteFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG ="AddNoteFragment" ;
 
     private EditText eteName;
     private EditText eteDesc;
@@ -40,6 +45,7 @@ public class AddNoteFragment extends Fragment {
     private String mParam2;
 
     private OnNoteListener mListener;
+    private NoteRepository noteRepository;
 
     /**
      * Use this factory method to create a new instance of
@@ -118,8 +124,14 @@ public class AddNoteFragment extends Fragment {
         desc= eteDesc.getText().toString().trim();
         note= eteNote.getText().toString().trim();
 
-        NoteEntity noteEntity= new NoteEntity(name,desc,null);
-        mListener.getCrudOperations().addNote(noteEntity);
+        Calendar calendar= Calendar.getInstance();
+        String ndate= ""+calendar.getTime();
+
+        NoteEntity noteEntity= new NoteEntity(name,desc,null,ndate);
+        //mListener.getCrudOperations().addNote(noteEntity);
+        noteRepository= new NoteRepository(getActivity());
+        noteRepository.create(noteEntity);
+        Log.v(TAG, "noteEntity " + noteEntity);
 
         getActivity().finish();
 

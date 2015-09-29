@@ -16,6 +16,7 @@ import com.isil.mynotesormlite.entity.NoteEntity;
 import com.isil.mynotesormlite.storage.PreferencesHelper;
 import com.isil.mynotesormlite.storage.db.CRUDOperations;
 import com.isil.mynotesormlite.storage.db.MyDatabase;
+import com.isil.mynotesormlite.storage.dborm.NoteRepository;
 import com.isil.mynotesormlite.utils.StringUtils;
 import com.isil.mynotesormlite.view.adapters.NoteAdapter;
 
@@ -34,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
     private List<NoteEntity> lsNoteEntities;
     private CRUDOperations crudOperations;
     private NoteAdapter noteAdapter;
+    private NoteRepository noteRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,16 @@ public class MainActivity extends ActionBarActivity {
         lsNoteEntities= crudOperations.getAllNotes();
         noteAdapter= new NoteAdapter(this,lsNoteEntities);
         lstNotes.setAdapter(noteAdapter);
+
+    }
+
+    private void loadDataORM() {
+        noteRepository= new NoteRepository(this);
+        lsNoteEntities= noteRepository.getRecentAll();
+        noteAdapter= new NoteAdapter(this,lsNoteEntities);
+        lstNotes.setAdapter(noteAdapter);
+
+        Log.v(TAG, "lsNoteEntities "+lsNoteEntities);
 
     }
 
@@ -129,7 +141,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         Log.v(TAG, "onResumen");
-        loadData();
+        //loadData();
+        loadDataORM();
     }
 
     @Override

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.isil.mynotesormlite.entity.NoteEntity;
 import com.isil.mynotesormlite.storage.db.CRUDOperations;
 import com.isil.mynotesormlite.storage.db.MyDatabase;
+import com.isil.mynotesormlite.storage.dborm.NoteRepository;
 import com.isil.mynotesormlite.view.dialogs.MyDialogFragment;
 import com.isil.mynotesormlite.view.dialogs.MyDialogListener;
 import com.isil.mynotesormlite.view.fragments.AddNoteFragment;
@@ -29,6 +30,7 @@ public class NoteActivity extends ActionBarActivity  implements OnNoteListener, 
     private NoteEntity noteEntity;
 
     private CRUDOperations crudOperations;
+    private NoteRepository noteRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class NoteActivity extends ActionBarActivity  implements OnNoteListener, 
         validateExtras();
 
         crudOperations= new CRUDOperations(new MyDatabase(this));
+        noteRepository= new NoteRepository(this);
         Bundle bundle= new Bundle();
         bundle.putSerializable("NOTE",noteEntity);
         changeFragment(fragmentSelected, bundle);
@@ -115,7 +118,8 @@ public class NoteActivity extends ActionBarActivity  implements OnNoteListener, 
         NoteEntity noteEntity= (NoteEntity)(object);
         if(noteEntity!=null)
         {
-            crudOperations.deleteNote(noteEntity);
+            //crudOperations.deleteNote(noteEntity);
+            noteRepository.delete(noteEntity);
             finish();
         }
     }

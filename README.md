@@ -1,7 +1,7 @@
 # am2_group2015_2
 Aplicaciones Móviles II - Android ISIL
 
-## Lesson 6
+## Lesson 7
 
 * Base de Datos SQLite
 * Manejo de base de datos con ORMLite

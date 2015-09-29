@@ -1,16 +1,33 @@
 package com.isil.mynotesormlite.entity;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
 
 /**
  * Created by emedinaa on 15/09/15.
  */
+@DatabaseTable(tableName = "note.tb")
 public class NoteEntity implements Serializable {
 
+    public static  final String TIMESTAMP_FIELD="addedDate";
+
+    //@DatabaseField(id = true)
+    @DatabaseField(generatedId=true)
     private int id;
+
+    @DatabaseField()
     private String name;
+
+    @DatabaseField()
     private String description;
+
+    @DatabaseField()
     private String path;
+
+    @DatabaseField()
+    private String addedDate;
 
     public NoteEntity() {
     }
@@ -26,6 +43,13 @@ public class NoteEntity implements Serializable {
         this.name = name;
         this.description = description;
         this.path = path;
+    }
+
+    public NoteEntity(String name, String description, String path,String addedDate) {
+        this.name = name;
+        this.description = description;
+        this.path = path;
+        this.addedDate= addedDate;
     }
 
     public int getId() {
@@ -58,5 +82,25 @@ public class NoteEntity implements Serializable {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getAddedDate() {
+        return addedDate;
+    }
+
+    public void setAddedDate(String addedDate) {
+        this.addedDate = addedDate;
+    }
+
+
+    @Override
+    public String toString() {
+        return "NoteEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", path='" + path + '\'' +
+                ", addedDate='" + addedDate + '\'' +
+                '}';
     }
 }
