@@ -12,6 +12,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">MyNotesORMLite</string>
     <string name="title_activity_note">MyNotesORMLite</string>
+    <string name="title_activity_search">SearchActivity</string>
 
     <!--
      á \u00E1

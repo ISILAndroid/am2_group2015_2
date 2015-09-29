@@ -7,7 +7,12 @@ import java.io.Serializable;
 
 /**
  * Created by emedinaa on 15/09/15.
+ * 1. ESTA OPCION ME PERMITE INGRESAR MANUALMENTE UN ID
+ * @DatabaseField(id = true)
+ * 2. ESTA OPCION ME PERMITE TENER UN ID AUTOGENERADO
+ * @DatabaseField(generatedId=true)
  */
+
 @DatabaseTable(tableName = "note.tb")
 public class NoteEntity implements Serializable {
 

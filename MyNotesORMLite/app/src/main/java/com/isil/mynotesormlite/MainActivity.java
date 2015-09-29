@@ -1,15 +1,21 @@
 package com.isil.mynotesormlite;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.isil.mynotesormlite.entity.NoteEntity;
@@ -37,14 +43,74 @@ public class MainActivity extends ActionBarActivity {
     private NoteAdapter noteAdapter;
     private NoteRepository noteRepository;
 
+    private ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //populate();
+        initActionbar();
         init();
         //loadData();
     }
+
+    /**
+     * Custom actionbar
+     * 1. ¿PORQUE AL CREAR UN CUSTOMACTIONBAR , NO OCUPA TODA LA PANTALLA?
+     * 2. PODEMOS COLOCAR UN COLOR DE FONDO PARA QUE APARENTE OCUPAR TODA LA PANTALLA
+     * 3. PODEMOS ASIGNAR UN ARCHO QUE OCUPE TODA LA PANTALLA
+     */
+    private void initActionbar() {
+        actionBar=getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        //actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.orange1)));
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view= layoutInflater.inflate(R.layout.layout_actionbar, null);
+        actionBar.setCustomView(view);
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        ViewGroup.LayoutParams lp = actionBar.getCustomView().getLayoutParams();
+        lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        actionBar.getCustomView().setLayoutParams(lp);
+        //android 5.0
+        Toolbar parent = (Toolbar) view.getParent();
+        parent.setContentInsetsAbsolute(0, 0);
+
+        //eventos
+        view.findViewById(R.id.iviSearch).setOnClickListener(actionbarOnClickListener);
+        view.findViewById(R.id.iviLogout).setOnClickListener(actionbarOnClickListener);
+        TextView tviUser=(TextView)view.findViewById(R.id.tviUser);
+
+        //user Info
+        String username = PreferencesHelper.getUserSession(this);
+        if(username!=null)
+        {
+            //tviUser.setText("Bienvenido "+ StringUtils.firstCapitalize(username));
+            tviUser.setText("Bienvenido "+ StringUtils.firstCapitalize(username));
+        }
+    }
+
+
+    private View.OnClickListener actionbarOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(v.getId()==R.id.iviSearch)
+            {
+                gotoSearch();
+            }else if(v.getId()==R.id.iviLogout)
+            {
+                logout();
+            }
+        }
+    };
+
+    private void gotoSearch() {
+        Intent intent= new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
+
 
     private void loadData() {
         crudOperations= new CRUDOperations(new MyDatabase(this));
@@ -83,13 +149,6 @@ public class MainActivity extends ActionBarActivity {
         lstNotes= (ListView)(findViewById(R.id.lstNotes));
         btnAddNote= (Button)(findViewById(R.id.btnAddNote));
 
-        //user Info
-        String username = PreferencesHelper.getUserSession(this);
-        if(username!=null)
-        {
-            tviUser.setText("Bienvenido "+ StringUtils.firstCapitalize(username));
-        }
-
         //events
         btnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +165,12 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        tviLogout.setOnClickListener(new View.OnClickListener() {
+        /*tviLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logout();
             }
-        });
+        });*/
     }
 
     private void gotoNote(int action, NoteEntity noteEntity) {

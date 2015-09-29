@@ -10,6 +10,7 @@
         android:id="@+id/tviLogout"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:visibility="gone"
         android:padding="12dp"/>
 
     <TextView
@@ -19,13 +20,13 @@
         android:id="@+id/tviUser"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:visibility="gone"
         android:padding="12dp"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp">
+        android:layout_height="match_parent">
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

@@ -118,10 +118,18 @@ public class DetailsFragment extends Fragment {
             //eteNote.setText(noteEntity.get());
         }
 
+        //events
         btnDeleteNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mListener.deleteNote(noteEntity);
+            }
+        });
+
+        btnEditNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
