@@ -1,6 +1,7 @@
 package com.isil.mynotesormlite.storage.dborm;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.isil.mynotesormlite.entity.NoteEntity;
 import com.j256.ormlite.dao.Dao;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public class NoteRepository {
 
+    private static final String TAG = "NoteRepository";
     private DatabaseHelper dbHelper;
     private Dao<NoteEntity, Integer> noteDao;
 
@@ -43,6 +45,7 @@ public class NoteRepository {
             return noteDao.update(note);
         } catch (SQLException e) {
             e.printStackTrace();
+            Log.v(TAG, "update exception " + e);
         }
 
         return 0;

@@ -88,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
         if(username!=null)
         {
             //tviUser.setText("Bienvenido "+ StringUtils.firstCapitalize(username));
-            tviUser.setText("Bienvenido "+ StringUtils.firstCapitalize(username));
+            tviUser.setText("Bienvenido " + StringUtils.firstCapitalize(username));
         }
     }
 
@@ -202,6 +202,15 @@ public class MainActivity extends ActionBarActivity {
         Log.v(TAG, "onResumen");
         //loadData();
         loadDataORM();
+    }
+
+    /**
+     * "onBackPressed"
+     * ESTE METODO PERMITE CAPTURAR EL EVENTO DE BACK DEL BOTON FISICO DE DISPOSITIVO
+     */
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     @Override

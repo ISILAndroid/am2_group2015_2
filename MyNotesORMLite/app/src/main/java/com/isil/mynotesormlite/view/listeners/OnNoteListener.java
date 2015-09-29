@@ -10,4 +10,5 @@ public interface OnNoteListener {
 
      CRUDOperations getCrudOperations();
      void deleteNote(NoteEntity noteEntity);
+     void editNote(NoteEntity noteEntity);
 }

@@ -13,6 +13,8 @@ import com.isil.mynotesormlite.R;
 import com.isil.mynotesormlite.entity.NoteEntity;
 import com.isil.mynotesormlite.view.listeners.OnNoteListener;
 
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -29,16 +31,17 @@ public class DetailsFragment extends Fragment {
 
     private Button btnDeleteNote;
     private Button btnEditNote;
+    private EditText eteName;
+    private EditText eteDesc;
+    private EditText eteNote;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnNoteListener mListener;
     private NoteEntity noteEntity;
-    private EditText eteName;
-    private EditText eteDesc;
-    private EditText eteNote;
+    private NoteEntity nNoteEntity;
+    private String name,description;
 
     /**
      * Use this factory method to create a new instance of
@@ -105,7 +108,6 @@ public class DetailsFragment extends Fragment {
         btnDeleteNote=(Button)getView().findViewById(R.id.btnDeleteNote);
         btnEditNote=(Button)getView().findViewById(R.id.btnEditNote);
 
-
         if(getArguments()!=null)
         {
             noteEntity= (NoteEntity)getArguments().getSerializable("NOTE");
@@ -129,8 +131,30 @@ public class DetailsFragment extends Fragment {
         btnEditNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(validate())
+                {
+                    Calendar calendar= Calendar.getInstance();
+                    String nDate= ""+calendar.getTime();
 
+                    nNoteEntity= new NoteEntity();
+                    nNoteEntity.setId(noteEntity.getId());
+                    nNoteEntity.setName(name);
+                    nNoteEntity.setDescription(description);
+                    nNoteEntity.setAddedDate(nDate);
+
+                    mListener.editNote(nNoteEntity);
+                }
             }
         });
+    }
+
+    private boolean validate()
+    {
+        name= eteName.getText().toString().trim();
+        description= eteDesc.getText().toString().trim();
+
+        if(name.isEmpty())return false;
+        if(description.isEmpty())return false;
+        return true;
     }
 }
