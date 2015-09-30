@@ -34,6 +34,9 @@ public class NoteEntity implements Serializable {
     @DatabaseField()
     private String addedDate;
 
+    @DatabaseField()
+    private String color;
+
     public NoteEntity() {
     }
 
@@ -50,10 +53,17 @@ public class NoteEntity implements Serializable {
         this.path = path;
     }
 
-    public NoteEntity(String name, String description, String path,String addedDate) {
+    /*public NoteEntity(String name, String description, String path,String addedDate) {
         this.name = name;
         this.description = description;
         this.path = path;
+        this.addedDate= addedDate;
+    }*/
+
+    public NoteEntity(String name, String description, String color,String addedDate) {
+        this.name = name;
+        this.description = description;
+        this.color = color;
         this.addedDate= addedDate;
     }
 
@@ -97,6 +107,13 @@ public class NoteEntity implements Serializable {
         this.addedDate = addedDate;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     @Override
     public String toString() {
@@ -106,6 +123,7 @@ public class NoteEntity implements Serializable {
                 ", description='" + description + '\'' +
                 ", path='" + path + '\'' +
                 ", addedDate='" + addedDate + '\'' +
+                ", color='" + color + '\'' +
                 '}';
     }
 }

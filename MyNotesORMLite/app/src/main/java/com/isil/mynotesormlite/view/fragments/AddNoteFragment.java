@@ -127,7 +127,7 @@ public class AddNoteFragment extends Fragment {
         Calendar calendar= Calendar.getInstance();
         String ndate= ""+calendar.getTime();
 
-        NoteEntity noteEntity= new NoteEntity(name,desc,null,ndate);
+        NoteEntity noteEntity= new NoteEntity(name,desc,"0",ndate);
         //mListener.getCrudOperations().addNote(noteEntity);
         noteRepository= new NoteRepository(getActivity());
         noteRepository.create(noteEntity);
