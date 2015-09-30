@@ -32,8 +32,8 @@ public class MyViewPagerActivity extends ActionBarActivity implements OnFragment
         setContentView(R.layout.activity_my_view_pager);
 
         mPager = (ViewPager) findViewById(R.id.pager);
-        //mPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        mPager.setPageTransformer(true, new DepthPageTransformer());
+        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        //mPager.setPageTransformer(true, new DepthPageTransformer());
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
