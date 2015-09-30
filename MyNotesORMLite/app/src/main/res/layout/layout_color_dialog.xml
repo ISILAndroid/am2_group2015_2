@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Seleccionar un color :"
         android:textSize="20sp"
-        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
         android:layout_marginBottom="10dp"/>
     <LinearLayout
         android:orientation="horizontal"
