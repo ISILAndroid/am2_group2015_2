@@ -8,58 +8,15 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".view.MyTabActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-
-        </activity>
-        <activity
             android:name=".view.NavigationDrawerActivity"
-            android:label="@string/app_name" >
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-
+            android:label="@string/app_name"
+            android:screenOrientation="landscape">
         </activity>
-        <activity
-            android:name=".view.MyViewPagerActivity"
-            android:label="@string/app_name" >
 
-        </activity>
         <activity
-            android:name=".view.BottonActivity"
-            android:label="@string/title_activity_button" >
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity
-            android:name=".P02Activity"
-            android:label="@string/title_activity_p02"
-            android:screenOrientation="portrait">
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

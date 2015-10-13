@@ -20,5 +20,6 @@
     <string name="title_activity_my_view_pager">MyViewPagerActivity</string>
     <string name="title_activity_button">ButtonActivity</string>
     <string name="title_activity_p02">P02Activity</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>
