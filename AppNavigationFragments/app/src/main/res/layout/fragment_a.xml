@@ -10,6 +10,6 @@
         android:textSize="30sp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:text="FRAGMENT A" />
+        android:text="PERFIL" />
 
 </FrameLayout>

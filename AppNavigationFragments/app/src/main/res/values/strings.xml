@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Navigation Fragments</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_my_tab">MyTabActivity</string>
-    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="app_name">AM2 Parcial</string>
+    <string name="hello_world">AM2 Parcial</string>
+    <string name="action_settings">AM2 Parcial</string>
+    <string name="hello_blank_fragment">AM2 Parcial</string>
+    <string name="title_activity_my_tab">AM2 Parcial</string>
+    <string name="title_activity_navigation_drawer">AM2 Parcial</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
     <string-array name="planets_array">
-        <item>Fragment A</item>
-        <item>Fragment B</item>
-        <item>Fragment C</item>
-        <item>Fragment D</item>
+        <item>Perfil</item>
+        <item>Notas</item>
+        <item>Facultades</item>
+        <item>Cerrar sesión</item>
     </string-array>
 
-    <string name="title_activity_my_view_pager">MyViewPagerActivity</string>
-    <string name="title_activity_button">ButtonActivity</string>
-    <string name="title_activity_p02">P02Activity</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">AM2 Parcial</string>
 
 </resources>

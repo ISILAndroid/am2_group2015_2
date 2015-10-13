@@ -1,5 +1,6 @@
 package com.isil.am2lesson3.view;
 
+import android.content.Intent;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,16 +9,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.isil.am2lesson3.LoginActivity;
 import com.isil.am2lesson3.R;
+import com.isil.am2lesson3.storage.PreferencesHelper;
 import com.isil.am2lesson3.view.fragments.AFragment;
-import com.isil.am2lesson3.view.fragments.BFragment;
+import com.isil.am2lesson3.view.fragments.GradeFragment;
 import com.isil.am2lesson3.view.fragments.CFragment;
 import com.isil.am2lesson3.view.fragments.DFragment;
 import com.isil.am2lesson3.view.listener.OnFragmentListener;
@@ -33,7 +35,7 @@ public class NavigationDrawerActivity extends ActionBarActivity implements OnFra
     private String[] mPlanetTitles;
 
     private AFragment aFragment= AFragment.newInstance(null,null);
-    private BFragment bFragment= BFragment.newInstance(null, null);
+    private GradeFragment gradeFragment = GradeFragment.newInstance(null, null);
     private CFragment cFragment= CFragment.newInstance(null, null);
     private DFragment dFragment= DFragment.newInstance(null, null);
 
@@ -139,16 +141,23 @@ public class NavigationDrawerActivity extends ActionBarActivity implements OnFra
                 changeFragment(null,aFragment ,"aFragment");
                 break;
             case 1:
-                changeFragment(null,bFragment ,"bFragment");
+                changeFragment(null, gradeFragment,"bFragment");
                 break;
             case 2:
                 changeFragment(null,cFragment ,"cFragment");
                 break;
 
             case 3:
-                changeFragment(null,dFragment ,"dFragment");
+                closeSession();
                 break;
         }
+    }
+
+    private void closeSession() {
+        PreferencesHelper.signOut(this);
+        Intent intent= new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void changeFragment(Bundle args, Fragment fragment, String tag)
