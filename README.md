@@ -7,8 +7,7 @@ Aplicaciones Móviles II - Android ISIL
 - Creamos la vista "LoginActivity" en modo landscape (horizontal).
 - En el elemento AndroidManifest.xml configuramos que LoginActivity sea la primera actividad.
 
-{% highlight xml %}
-
+```
     <?xml version="1.0" encoding="utf-8"?>
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.isil.am2lesson3" >
@@ -33,65 +32,55 @@ Aplicaciones Móviles II - Android ISIL
             </activity>
         </application>
     </manifest>
-
-{% endhighlight %}
+```
 
 - Cambiamos los items del navigation drawer en Strings.xml.
 
-{% highlight xml %}
-
+```
     <string-array name="planets_array">
         <item>Perfil</item>
         <item>Notas</item>
         <item>Facultades</item>
         <item>Cerrar sesión</item>
     </string-array>
-{% endhighlight %}
+```
 
 - La funcionalidad de cerrar sesión.
 
-{% highlight java %}
-
+```java
     private void closeSession() {
         PreferencesHelper.signOut(this);
         Intent intent= new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
-
-{% endhighlight %}
+```
 
 - Creamos el fragment "GradeFragment" , que debe tener solamente un ListView.
 - Creamos el layout que nos servirá para la celda.
 - Creamos el adapter
 
-{% highlight java %}
 
+```java
     public class CourseAdapter extends BaseAdapter {
-
         private Context context;
         private List<CourseEntity> data;
-
         public CourseAdapter(Context context, List<CourseEntity> data) {
             this.context = context;
             this.data = data;
         }
-
         @Override
         public int getCount() {
             return data.size();
         }
-
         @Override
         public Object getItem(int position) {
             return data.get(position);
         }
-
         @Override
         public long getItemId(int position) {
             return 0;
         }
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(context);
@@ -99,63 +88,49 @@ Aplicaciones Móviles II - Android ISIL
             ImageView imgContact= (ImageView)container.findViewById(R.id.iviCourse);
             TextView tviName= (TextView)container.findViewById(R.id.tviName);
             TextView tviGrade= (TextView)container.findViewById(R.id.tviGrade);
-
             //Extraer la entidad
             CourseEntity courseEntity= this.data.get(position);
-
             //Asociar la entidad con el XML
             String name = courseEntity.getName();
             double grade = courseEntity.getGrade();
             tviName.setText(name);
             tviGrade.setText(Double.toString(grade));
-
             //imgContact.setImageResource(contactEntity.getPhoto());
-
             return container;
         }
     }
-{% endhighlight %}
+```
 
 - Asociamos el adapter al ListView y agregamos data de prueba
 
-{% highlight java %}
-
+```java
      @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             lviGrade= (ListView)getView().findViewById(R.id.lviGrade);
-
             //data
             courseEntities= new ArrayList<>();
             courseEntities.add(new CourseEntity("Matemática",15,0));
             courseEntities.add(new CourseEntity("Física",13,0));
             courseEntities.add(new CourseEntity("Algoritmos I",18,0));
             courseEntities.add(new CourseEntity("Base de Datos II",16,0));
-
             //adapter
             CourseAdapter courseAdapter= new CourseAdapter(getActivity(), courseEntities);
-
             //asociar adapter a lista
             lviGrade.setAdapter(courseAdapter);
-
         }
-{% endhighlight %}
+```
 
 - Finalmente en el login validamos que exista la sesión
 
-{% highlight java %}
-
+```java
     public class LoginActivity extends AppCompatActivity {
-
         private static final String VALUE_ADMIN="admin";
         private static final String VALUE_PASSWORD="123456";
-
         private EditText editTxtUsername;
         private EditText editTxtPassword;
         private Button btnLogin;
-
         private String username,password;
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -164,25 +139,20 @@ Aplicaciones Móviles II - Android ISIL
             {
                 gotoHome();
                 return;
-
             }else
             {
                 init();
             }
         }
-
         private boolean session() {
             String tmp =PreferencesHelper.getUserSession(this);
             if(tmp==null) return false;
-
             return true;
         }
-
         private void init() {
             editTxtUsername= (EditText)findViewById(R.id.editTxtUsername);
             editTxtPassword= (EditText)findViewById(R.id.editTxtPassword);
             btnLogin= (Button)findViewById(R.id.btnLogin);
-
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -200,21 +170,17 @@ Aplicaciones Móviles II - Android ISIL
                 }
             });
         }
-
         private void saveSession() {
             PreferencesHelper.saveSession(this, username,password);
         }
-
         private void gotoHome() {
             Intent intent= new Intent(this, NavigationDrawerActivity.class);
             startActivity(intent);
             finish();
         }
-
         private boolean validateForm() {
             username = editTxtUsername.getText().toString().trim();
             password = editTxtPassword.getText().toString().trim();
-
             if (username.isEmpty()) {
                 editTxtUsername.setError("Username ,campo inválido");
                 return false;
@@ -224,18 +190,15 @@ Aplicaciones Móviles II - Android ISIL
                 editTxtUsername.setError("Passsword ,campo inválido");
                 return false;
             }
-
             return true;
         }
-
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             return false;
         }
-
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             return false;
         }
     }
-{% endhighlight %}
+```
