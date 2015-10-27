@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/default_user"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Name"
+            android:ems="10"
+            android:id="@+id/eTxtName" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|left"
+            android:lines="3"
+            android:inputType="textMultiLine"
+            android:hint="Skill"
+            android:ems="10"
+            android:id="@+id/eTxtSkill" />
+
+        <LinearLayout
+            android:id="@+id/butAddSpeaker"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/gray"
+            android:padding="5dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/butAdd"
+                android:background="@drawable/icon_add"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar Speaker"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rlayLoading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/black_progress"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</FrameLayout>

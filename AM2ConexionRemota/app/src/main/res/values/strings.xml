@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Conexión Remota</string>
+    <string name="hello_world">Conexión Remota</string>
+    <string name="action_settings">Conexión Remota</string>
+    <string name="hello_blank_fragment">Conexión Remota</string>
+
+</resources>
