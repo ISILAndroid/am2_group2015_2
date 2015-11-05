@@ -1,15 +1,14 @@
 # am2_group2015_2
 Aplicaciones Móviles II - Android ISIL
 
-## Lesson 7
+## Lesson 9
 
-* Base de Datos SQLite
-* Manejo de base de datos con ORMLite
-* Ejemplos Base de datos
+* Conexión Remota
+* Volley , librería Http
+* Integración con el API REST de Parse.
 
 ## Referencias
 
-* ORMLite [Link](http://ormlite.com/sqlite_java_android_orm.shtml)
-* ORMLite Ejemplos [Link](http://ormlite.com/android/examples/)
-
-
+* Volley [Link](http://developer.android.com/intl/es/training/volley/index.html)
+* Parse [Parse.com](https://parse.com/)
+* Parse API REST [Link](https://parse.com/docs/rest/guide/)
