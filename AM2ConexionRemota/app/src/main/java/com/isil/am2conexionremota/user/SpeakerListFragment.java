@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -29,7 +30,6 @@ import com.isil.am2conexionremota.entity.SpeakerResponseEntity;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +53,7 @@ public class SpeakerListFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_speaker, null);
+        View view = inflater.inflate(R.layout.fragment_speaker_list, null);
 
         return view;
     }
@@ -137,6 +137,15 @@ public class SpeakerListFragment extends Fragment
     {
         SpeakerAdapter adapter = new SpeakerAdapter(getActivity(), R.layout.row_speaker, dataSpeaker);
         lviSpeaker.setAdapter(adapter);
+
+        lviSpeaker.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                SpeakerEntity speakerEntity= (SpeakerEntity)parent.getAdapter().getItem(position);
+                mListener.gotoSpeakerDetails(speakerEntity);
+            }
+        });
     }
 
     @Override

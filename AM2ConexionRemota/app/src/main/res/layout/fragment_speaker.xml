@@ -3,18 +3,69 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ListView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/lviSpeaker"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"/>
+        android:padding="10dp"
+        android:gravity="center_vertical">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/default_user"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Name"
+            android:ems="10"
+            android:id="@+id/eTxtName" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|left"
+            android:lines="3"
+            android:inputType="textMultiLine"
+            android:hint="Skill"
+            android:ems="10"
+            android:id="@+id/eTxtSkill" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/butAddSpeaker"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Actualizar"
+            android:id="@+id/butEdit"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Eliminar"
+            android:id="@+id/butDelete" />
+
+    </LinearLayout>
     <RelativeLayout
         android:id="@+id/rlayLoading"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@color/black_progress"
         android:visibility="gone">
 
         <ProgressBar
@@ -24,25 +75,4 @@
             android:layout_centerInParent="true" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:background="@color/bluesky2">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/butAdd"
-            android:background="@drawable/icon_add"
-            android:layout_marginRight="20dp"/>
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/icon_refresh"
-            android:id="@+id/butRefresh" />
-    </LinearLayout>
 </FrameLayout>
