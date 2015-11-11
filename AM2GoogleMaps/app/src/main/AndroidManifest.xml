@@ -39,6 +39,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/gmaps_key" />
+
+        <activity
+            android:name=".RountingActivity"
+            android:label="@string/title_activity_rounting" >
+        </activity>
     </application>
 
 </manifest>
