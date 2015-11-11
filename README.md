@@ -26,9 +26,51 @@ Aplicaciones Móviles II - Android ISIL
 
         ```
 
-        2. Configuración Android Manifest
+        2. Configuración del AndroidManifest
+            Permisos requeridos
+            Habilitar OpenGL
+            Metadata requerida para google play services y google maps
 
-        2. xxx
+        ```
+        <permission
+        android:name="com.emedinaa.am2googlemaps.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" >
+        </permission>
+
+        <uses-permission android:name="com.emedinaa.am2googlemaps.permission.MAPS_RECEIVE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        ```
+
+        ```
+        <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+        ```
+
+        ```
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/gmaps_key" />
+        ```
+        
+        3. Agregar al XML del activity el fragment de Google Maps
+        ```
+        <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"/>
+        
+        ```
 
 ## Referencias
 
