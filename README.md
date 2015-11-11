@@ -3,8 +3,8 @@ Aplicaciones Móviles II - Android ISIL
 
 ## Lesson 10
 
-Google Maps
-    * Configuración
+* Google Maps
+    - Configuración
         1. Crear un proyecto en [Google Console API](https://console.developers.google.com/)
         ![1](https://github.com/ISILAndroid/am2_group2015_2/blob/Lesson10/images/gm1.png)
         2. Agregamos el API de Google Maps Android API V2.
@@ -14,7 +14,7 @@ Google Maps
         4. Agregamos una clave de API de Android y lo guardamos.
          ![4](https://github.com/ISILAndroid/am2_group2015_2/blob/Lesson10/images/gm4.png)
 
-    * Proyecto Android
+    - Proyecto Android
     1. Agregamos la dependencia de Google Play services
 
         ```
@@ -108,6 +108,9 @@ Google Maps
     }
 
     ```
+
+Resultado
+    ![5](https://github.com/ISILAndroid/am2_group2015_2/blob/Lesson10/images/gm5.png)
 
 ## Referencias
 
