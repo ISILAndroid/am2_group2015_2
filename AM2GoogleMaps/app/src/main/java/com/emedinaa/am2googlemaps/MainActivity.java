@@ -1,5 +1,6 @@
 package com.emedinaa.am2googlemaps;
 
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
     private double defaultLat= -12.046363;
     private double defaultLng= -77.042052;
     private GoogleApiClient mGoogleApiClient;
+    private Location mLastLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +103,26 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
 
     @Override
     public void onConnected(Bundle bundle) {
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null)
+        {
+            userLat=mLastLocation.getLatitude();
+            userLng=mLastLocation.getLongitude();
+            userMarker(userLat, userLng);
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(userLat,userLng), ZOOM));
+        }
+    }
+
+    private void userMarker(double lat, double lng)
+    {
+        if (marker != null) {
+            marker.remove();
+        }
+        marker = map.addMarker(new MarkerOptions()
+                .position(new LatLng(lat, lng))
+                .title("Mi Ubicación")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
     }
 

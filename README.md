@@ -15,7 +15,7 @@ Aplicaciones Móviles II - Android ISIL
          ![4](https://github.com/ISILAndroid/am2_group2015_2/blob/Lesson10/images/gm4.png)
 
     - Proyecto Android
-    1. Agregamos la dependencia de Google Play services
+        1. Agregamos la dependencia de Google Play services
 
         ```
         dependencies {
@@ -72,42 +72,42 @@ Aplicaciones Móviles II - Android ISIL
         4. Iniciamos el Map en la Activity
 
         ```
-         private void initMap() {
-        try {
-            if (map == null)
-            {
-                // above API 11
-                map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-                map.getUiSettings().setAllGesturesEnabled(true);
-                map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                map.setMyLocationEnabled(true);
-                map.getUiSettings().setZoomControlsEnabled(false);
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(defaultLat, defaultLng), ZOOM));
-                map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                    @Override
-                    public void onMapClick(LatLng point)
-                    {
-                        selected=true;
-                        if (marker != null) {
-                            marker.remove();
+             private void initMap() {
+            try {
+                if (map == null)
+                {
+                    // above API 11
+                    map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+                    map.getUiSettings().setAllGesturesEnabled(true);
+                    map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    map.setMyLocationEnabled(true);
+                    map.getUiSettings().setZoomControlsEnabled(false);
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(defaultLat, defaultLng), ZOOM));
+                    map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                        @Override
+                        public void onMapClick(LatLng point)
+                        {
+                            selected=true;
+                            if (marker != null) {
+                                marker.remove();
+                            }
+                            marker = map.addMarker(new MarkerOptions()
+                                    .position(point)
+                                    .title("Mi ubicación")
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                            marker.showInfoWindow();
+                            userLat=point.latitude;
+                            userLng = point.longitude;
+                            Toast.makeText(MainActivity.this,"Lat & Lng "+userLat+" "+userLng,Toast.LENGTH_LONG).show();
                         }
-                        marker = map.addMarker(new MarkerOptions()
-                                .position(point)
-                                .title("Mi ubicación")
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-                        marker.showInfoWindow();
-                        userLat=point.latitude;
-                        userLng = point.longitude;
-                        Toast.makeText(MainActivity.this,"Lat & Lng "+userLat+" "+userLng,Toast.LENGTH_LONG).show();
-                    }
-                });
+                    });
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        }catch (Exception e){
-            e.printStackTrace();
         }
-    }
 
-    ```
+        ```
 
 Resultado
     ![5](https://github.com/ISILAndroid/am2_group2015_2/blob/Lesson10/images/gm5.png)
