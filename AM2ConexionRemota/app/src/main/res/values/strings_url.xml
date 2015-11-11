@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="application_id">tNqFLFOkpUgFplAxTtpgqVvA7d403iam34asQ4RY</string>
-    <string name="rest_api_key">9ntv9ynsj0QEal8oF2KT6tqV4StjtGK3fcq13QPL</string>
-    <string name="url_speaker_get">https://api.parse.com/1/classes/Speaker</string>
-</resources>
